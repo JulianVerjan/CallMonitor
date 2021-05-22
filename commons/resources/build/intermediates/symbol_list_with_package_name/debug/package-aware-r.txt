@@ -1,0 +1,4 @@
+com.facetracking.resources
+color colorAccent
+color colorPrimary
+color colorPrimaryDark
