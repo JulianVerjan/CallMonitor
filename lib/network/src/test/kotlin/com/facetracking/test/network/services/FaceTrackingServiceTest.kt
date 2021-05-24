@@ -10,8 +10,10 @@ import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
+import okhttp3.MultipartBody
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
+import com.nhaarman.mockitokotlin2.mock
 import okio.buffer
 import okio.source
 import org.junit.After
@@ -21,6 +23,7 @@ import org.junit.Before
 import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
 
 object MockResponses {
     object GetCatalogInfo {
@@ -37,6 +40,9 @@ class FaceTrackingServiceTest {
 
     private lateinit var faceTrackingService: FaceTrackingService
     private lateinit var mockWebServer: MockWebServer
+    private val file: File = mock()
+    private val body = MultipartBody.Part.createFormData("uploaded_file",
+            file.name,mock())
 
     @Before
     fun setUp() {
@@ -64,7 +70,7 @@ class FaceTrackingServiceTest {
         enqueueResponse(MockResponses.GetCatalogInfo.STATUS_200)
         testScope.runBlockingTest {
             val job = launch {
-                val response = faceTrackingService.saveVideo()
+                val response = faceTrackingService.saveVideo(body)
                 assertEquals(
                     true,
                     response.toRepositoryResult { it.isVideoSaved }
@@ -79,7 +85,7 @@ class FaceTrackingServiceTest {
         enqueueResponse(MockResponses.GetCatalogInfo.STATUS_404)
         testScope.runBlockingTest {
             val job = launch {
-                val response = faceTrackingService.saveVideo()
+                val response = faceTrackingService.saveVideo(body)
                 assertEquals(400, response)
                 assertEquals(false, response.toRepositoryResult{it.isVideoSaved})
                 assertNull(response)

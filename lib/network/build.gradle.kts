@@ -12,6 +12,7 @@ import com.facetracking.buildsrc.Libs.RETROFIT_CONVERTER
 import com.facetracking.buildsrc.TestLibs.COROUTINES_TEST
 import com.facetracking.buildsrc.TestLibs.JUNIT_LIB
 import com.facetracking.buildsrc.TestLibs.MOCK
+import com.facetracking.buildsrc.TestLibs.MOCKITO_KOTLIN_LIBRARY
 import com.facetracking.buildsrc.TestLibs.MOCK_WEB_SERVER
 import com.facetracking.buildsrc.TestLibs.RUNNER
 
@@ -69,6 +70,7 @@ dependencies {
     implementation(RETROFIT_CONVERTER)
     implementation(CORE_HILT)
     implementation(MOSHI)
+    implementation(MOCKITO_KOTLIN_LIBRARY)
 
     kapt(HILT_COMPILER)
     kapt(HILT_ANDROID_COMPILER)

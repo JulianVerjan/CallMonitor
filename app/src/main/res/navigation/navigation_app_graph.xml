@@ -2,5 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_app_graph"
-    android:label="home_nav_graph">
+    android:label="home_nav_graph"
+    app:startDestination="@+id/face_tracking_video_nav_graph">
+    <include app:graph="@navigation/face_tracking_nav_graph" />
 </navigation>

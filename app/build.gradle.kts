@@ -64,6 +64,7 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":commons:resources"))
+    implementation(project(":feature:facetrackingvideo"))
     implementation(KOTLIN_JDK)
     implementation(CORE)
     implementation(CORE_HILT)

@@ -3,7 +3,8 @@ include(
     ":lib:network",
     ":lib:data",
     ":commons:resources",
-    ":lib:model"
+    ":lib:model",
+    "feature:facetrackingvideo"
 )
 
 rootProject.buildFileName = "build.gradle.kts"

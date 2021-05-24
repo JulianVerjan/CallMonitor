@@ -27,6 +27,10 @@ object Versions {
     const val COROUTINES_VERSION = "1.4.2"
     const val HILT_LIFE_CYCLE = "1.0.0-alpha03"
 
+    const val CAMERA_VERSION = "1.0.0-beta06"
+    const val CAMERA_VIEW_VERSION = "1.0.0-alpha13"
+    const val FACE_DETECTION_VERSION = "16.0.1"
+
     const val ARCH_CORE_VERSION = "2.1.0"
     const val MOCK_VERSION = "1.10.2"
     const val MOCK_WEB_SERVER_VERSION = "4.9.0"
@@ -59,16 +63,15 @@ object Libs {
     const val NAVIGATION_UI_LIB =
         "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION_VERSION}"
     const val FRAGMENT_NAVIGATION = "androidx.fragment:fragment:${Versions.FRAGMENT_NAVIGATION_VERSION}"
+    const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX_VERSION}"
 
     // Network and sever communication
-    const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX_VERSION}"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT_VERSION}"
     const val RETROFIT_CONVERTER =
         "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT_VERSION}"
     const val LOGIN_INTERCEPTOR =
         "com.squareup.okhttp3:logging-interceptor:${Versions.LOGIN_INTERCEPTOR_VERSION}"
     const val MOSHI = "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT_VERSION}"
-
 
     // Android hilt libraries
     const val CORE_HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
@@ -79,6 +82,15 @@ object Libs {
     const val COROUTINES_CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES_VERSION}"
     const val COROUTINES_ANDROID =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINES_VERSION}"
+
+    // Camera 2 API
+    const val CAMERA_CORE = "androidx.camera:camera-core:${Versions.CAMERA_VERSION}"
+    const val CAMERA_2 = "androidx.camera:camera-camera2:${Versions.CAMERA_VERSION}"
+    const val CAMERA_LIFE_CYCLE = "androidx.camera:camera-lifecycle:${Versions.CAMERA_VERSION}"
+    const val CAMERA_VIEW = "androidx.camera:camera-view:${Versions.CAMERA_VIEW_VERSION}"
+
+    // Face detection model
+    const val FACE_DETECTION = "com.google.mlkit:face-detection:${Versions.FACE_DETECTION_VERSION}"
 }
 
 object TestLibs {

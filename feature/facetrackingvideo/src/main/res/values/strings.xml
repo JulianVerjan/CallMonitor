@@ -1,0 +1,14 @@
+<resources>
+    <string name="snack_bar_empty_message">There is no content to show</string>
+    <string name="snack_bar_error_message">Something went wrong</string>
+    <string name="snack_bar_successful_message">The video was uploaded!</string>
+    <string name="error">Something went wrong!!!</string>
+    <string name="feature_title">Face Tracking App</string>
+
+    <string name="face_tracking_camera_access">Access to camera</string>
+    <string name="face_tracking_enable_camera_permission">Please allow access to your camera.</string>
+    <string name="face_tracking_allow">Allow access</string>
+    <string name="face_tracking_message">This is Face Tracking app</string>
+    <string name="face_tracking_title">Welcome</string>
+
+</resources>

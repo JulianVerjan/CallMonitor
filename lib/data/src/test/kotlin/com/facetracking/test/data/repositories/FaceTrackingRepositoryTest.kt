@@ -15,11 +15,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
+import okhttp3.MultipartBody
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
+import java.io.File
 
 @ExperimentalCoroutinesApi
 class FaceTrackingRepositoryTest {
@@ -33,6 +35,10 @@ class FaceTrackingRepositoryTest {
         message = "Video saved",
         isVideoSaved = true
     )
+
+    private val file: File = mock()
+    private val body = MultipartBody.Part.createFormData("uploaded_file",
+        file.name,mock())
 
     @Before
     fun setUp() {
@@ -51,10 +57,10 @@ class FaceTrackingRepositoryTest {
     fun saveVideoSuccessfully() {
         runBlockingTest {
 
-            whenever(faceTrackingService.saveVideo())
+            whenever(faceTrackingService.saveVideo(body))
                 .thenReturn(NetworkResponse.Success(mockData))
 
-            val response = faceTrackingRepository.saveVideo()
+            val response = faceTrackingRepository.saveVideo(body)
             assert(response is RepositoryResult.Success)
             val successResponse = response as RepositoryResult.Success
             assertEquals(successResponse.result?.isVideoSaved, true)
@@ -64,9 +70,9 @@ class FaceTrackingRepositoryTest {
     @Test
     fun saveVideoWithApiError() {
         runBlockingTest {
-            whenever(faceTrackingService.saveVideo())
+            whenever(faceTrackingService.saveVideo(body))
                 .thenReturn(NetworkResponse.ApiError("Error", 400))
-            val response = faceTrackingRepository.saveVideo()
+            val response = faceTrackingRepository.saveVideo(body)
             assertNotNull(response)
             assert(response is RepositoryResult.Fail<*>)
         }
@@ -75,9 +81,9 @@ class FaceTrackingRepositoryTest {
     @Test
     fun saveVideoWithNetworkError() {
         runBlockingTest {
-            whenever(faceTrackingService.saveVideo())
+            whenever(faceTrackingService.saveVideo(body))
                 .thenReturn(NetworkResponse.NetworkError(IOException()))
-            val response = faceTrackingRepository.saveVideo()
+            val response = faceTrackingRepository.saveVideo(body)
             assertNotNull(response)
             assert(response is RepositoryResult.Exception)
         }

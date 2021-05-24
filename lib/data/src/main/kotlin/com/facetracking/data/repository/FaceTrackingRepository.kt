@@ -6,13 +6,14 @@ import com.facetracking.network.model.mapper.RepositoryResult
 import com.facetracking.network.model.mapper.toRepositoryResult
 import com.facetracking.network.model.reponse.SaveVideoNetworkResponse
 import com.facetracking.network.model.mapper.toVideoModel
+import okhttp3.MultipartBody
 import javax.inject.Inject
 
 class FaceTrackingRepository @Inject constructor(
-    private val faceTrackingRemoteDataSource: FaceTrackingRemoteDataSource,
+        private val faceTrackingRemoteDataSource: FaceTrackingRemoteDataSource,
 ) {
 
-    suspend fun saveVideo(): RepositoryResult<SaveVideoResult> =
-        faceTrackingRemoteDataSource.saveVideo()
-            .toRepositoryResult(SaveVideoNetworkResponse::toVideoModel)
+    suspend fun saveVideo(video: MultipartBody.Part): RepositoryResult<SaveVideoResult> =
+            faceTrackingRemoteDataSource.saveVideo(video)
+                    .toRepositoryResult(SaveVideoNetworkResponse::toVideoModel)
 }
