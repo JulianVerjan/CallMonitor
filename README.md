@@ -97,8 +97,6 @@ The above is leading to some black screens and somewhat strange animations when 
 
 5. Due to time the saveVideoSuccessfully unit test is not working since the status it is returning an error, I would like to be able to fix it too.
 
-In that way instead of creating a new wallet and currency in the mobile app every time that we have a new currency we just add the new currency under one of the previous types of wallets and the app will show this in the UI making the solution more scalable.
-
 #### What was achieved during the test
 
 1. All the points required in the test were implemented using the ML Kit and camer2 API to detect faces and record the video.
