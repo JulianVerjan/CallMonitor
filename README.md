@@ -83,7 +83,7 @@ https://webhook.site/#!/25960fec-fdb0-468a-9227-0e2768d757b5/ebb58286-0767-4e4f-
 
 #### What would I do if I had more time
 
-1. The validation in the FaceTrackingImageAnalyzer class is not working correctly because the validation of the left corner and the bottom of the square are not correct. The idea was to validate that the face is inside the yellow square and when this happens start recording, however due to this problem sometimes the face is detected before it is inside the square. I would very much like to correct this if I had more time
+1. The validation(Lines 27 to 32) in the FaceTrackingImageAnalyzer class is not working correctly because the validation of the left corner and the bottom of the square are not correct. The idea was to validate that the face is inside the yellow square and when this happens start recording, however due to this problem sometimes the face is detected before it is inside the square. I would very much like to correct this if I had more time
 
 2. I had a confusion with the requirement of the yellow box and in the end, what I did was validate if the face was inside the box and keep the yellow box centered on the screen. If the face is outside the box or a part inside, it is not validated and the video will not be triggered.
 
