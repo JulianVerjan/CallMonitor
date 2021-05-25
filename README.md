@@ -83,19 +83,21 @@ https://webhook.site/#!/25960fec-fdb0-468a-9227-0e2768d757b5/ebb58286-0767-4e4f-
 
 #### What would I do if I had more time
 
-1. I had a confusion with the requirement of the yellow box and in the end, what I did was validate if the face was inside the box and keep the yellow box centered on the screen. If the face is outside the box or a part inside, it is not validated and the video will not be triggered.
+1. The validation in the FaceTrackingImageAnalyzer class is not working correctly because the validation of the left corner and the bottom of the square are not correct. The idea was to validate that the face is inside the yellow square and when this happens start recording, however due to this problem sometimes the face is detected before it is inside the square. I would very much like to correct this if I had more time
+
+2. I had a confusion with the requirement of the yellow box and in the end, what I did was validate if the face was inside the box and keep the yellow box centered on the screen. If the face is outside the box or a part inside, it is not validated and the video will not be triggered.
 
 If it was necessary to draw the yellow box around the person's face and not keep it centered, I would love to make this change in the future.
 
-2. Due to time it was necessary for me to separate the use cases that I pass to the cameraProvider object, when the face is tracked (bindFaceDetectionUseCase method) I had to pass the preview object and the image analyzer to it, then when a face was recognized, it cleaned the cameraProvider and recreated it case the use case (bindVideoRecordUseCase) with the preview object and the VideoCapture object.
+3. Due to time it was necessary for me to separate the use cases that I pass to the cameraProvider object, when the face is tracked (bindFaceDetectionUseCase method) I had to pass the preview object and the image analyzer to it, then when a face was recognized, it cleaned the cameraProvider and recreated it case the use case (bindVideoRecordUseCase) with the preview object and the VideoCapture object.
 
 The above is leading to some black screens and somewhat strange animations when doing this cleanup and creation. I would like in the future to review more in depth the ML kit documentation and find a solution to this or maybe see if it is possible to inject more than 3 use cases to the cameraProvider and validate how to do it.
 
-3. If I had had more time I would have tried to organize the code a little better in the feature module and I would have tried to separate it into some utility classes.
+4. If I had had more time I would have tried to organize the code a little better in the feature module and I would have tried to separate it into some utility classes.
 
-4. There are some strings in the feature code that are hardcoded, I would like to fix this as well.
+5. There are some strings in the feature code that are hardcoded, I would like to fix this as well.
 
-5. Due to time the saveVideoSuccessfully unit test is not working since the status it is returning an error, I would like to be able to fix it too.
+6. Due to time the saveVideoSuccessfully unit test is not working since the status it is returning an error, I would like to be able to fix it too.
 
 #### What was achieved during the test
 

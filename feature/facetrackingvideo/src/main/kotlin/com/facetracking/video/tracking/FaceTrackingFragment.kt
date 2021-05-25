@@ -190,6 +190,7 @@ class FaceTrackingFragment : Fragment(), FaceTrackingView.FaceTrackerListener,
     }
 
     private fun clearUseCasesAndStartAgain() {
+        lensFacing = LENS_FACING_BACK
         loading_bar.visibility = INVISIBLE
         onVideoStatus(getString(R.string.snack_bar_successful_message))
         setupCamera()
