@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin_quadruple">64dp</dimen>
+    <dimen name="margin_double">32dp</dimen>
+    <dimen name="margin_single">16dp</dimen>
+    <dimen name="margin_triple">48dp</dimen>
+    <dimen name="margin_half">8dp</dimen>
+    <dimen name="elevation_toolbar">0dp</dimen>
+    <dimen name="server_info_clickable_title_left_margin">20dp</dimen>
+    <dimen name="server_info_clickable_title_bottom_margin">24dp</dimen>
+    <dimen name="server_info_separator_line">1dp</dimen>
+    <dimen name="expanded_view_size">100dp</dimen>
+    <dimen name="rounded_corner">6dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_margin">4dp</dimen>
+    <dimen name="layout_card_padding">8dp</dimen>
+    <dimen name="toolbar_size">80dp</dimen>
+
+</resources>

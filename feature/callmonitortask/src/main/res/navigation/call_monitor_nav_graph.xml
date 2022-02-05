@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/call_monitor_task_nav_graph"
+    android:label="call_monitor_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.callmonitor.task.view.CallMonitorFragment"
+        android:label="HomeFragment">
+    </fragment>
+
+</navigation>

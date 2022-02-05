@@ -1,3 +1,0 @@
-int color colorAccent 0x0
-int color colorPrimary 0x0
-int color colorPrimaryDark 0x0

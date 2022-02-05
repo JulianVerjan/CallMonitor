@@ -1,20 +1,19 @@
-import com.facetracking.buildsrc.Apps.COMPILE_SDK
-import com.facetracking.buildsrc.Apps.MIN_SDK
-import com.facetracking.buildsrc.Apps.TARGET_SDK
-import com.facetracking.buildsrc.Apps.androidTestInstrumentation
-import com.facetracking.buildsrc.Libs.CORE_HILT
-import com.facetracking.buildsrc.Libs.HILT_ANDROID_COMPILER
-import com.facetracking.buildsrc.Libs.HILT_COMPILER
-import com.facetracking.buildsrc.Libs.LOGIN_INTERCEPTOR
-import com.facetracking.buildsrc.Libs.MOSHI
-import com.facetracking.buildsrc.Libs.RETROFIT
-import com.facetracking.buildsrc.Libs.RETROFIT_CONVERTER
-import com.facetracking.buildsrc.TestLibs.COROUTINES_TEST
-import com.facetracking.buildsrc.TestLibs.JUNIT_LIB
-import com.facetracking.buildsrc.TestLibs.MOCK
-import com.facetracking.buildsrc.TestLibs.MOCKITO_KOTLIN_LIBRARY
-import com.facetracking.buildsrc.TestLibs.MOCK_WEB_SERVER
-import com.facetracking.buildsrc.TestLibs.RUNNER
+import com.callmonitor.buildsrc.Apps.COMPILE_SDK
+import com.callmonitor.buildsrc.Apps.MIN_SDK
+import com.callmonitor.buildsrc.Apps.TARGET_SDK
+import com.callmonitor.buildsrc.Apps.androidTestInstrumentation
+import com.callmonitor.buildsrc.Libs.CORE_HILT
+import com.callmonitor.buildsrc.Libs.HILT_ANDROID_COMPILER
+import com.callmonitor.buildsrc.Libs.LOGIN_INTERCEPTOR
+import com.callmonitor.buildsrc.Libs.MOSHI
+import com.callmonitor.buildsrc.Libs.RETROFIT
+import com.callmonitor.buildsrc.Libs.RETROFIT_CONVERTER
+import com.callmonitor.buildsrc.TestLibs.COROUTINES_TEST
+import com.callmonitor.buildsrc.TestLibs.JUNIT_LIB
+import com.callmonitor.buildsrc.TestLibs.MOCK
+import com.callmonitor.buildsrc.TestLibs.MOCKITO_KOTLIN_LIBRARY
+import com.callmonitor.buildsrc.TestLibs.MOCK_WEB_SERVER
+import com.callmonitor.buildsrc.TestLibs.RUNNER
 
 plugins {
     id("com.android.library")
@@ -35,7 +34,7 @@ android {
         forEach {
             it.buildConfigField(
                 type = "String",
-                name = "API_BASE_URL", value = "\"https://webhook.site/\""
+                name = "API_BASE_URL", value = "\"http://192.168.0.115:5001\""
             )
         }
     }
@@ -72,7 +71,6 @@ dependencies {
     implementation(MOSHI)
     implementation(MOCKITO_KOTLIN_LIBRARY)
 
-    kapt(HILT_COMPILER)
     kapt(HILT_ANDROID_COMPILER)
 
     testImplementation(JUNIT_LIB)

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">serverApp</string>
+    <string name="start_server">Run server</string>
+    <string name="stop_server">Stop server</string>
+    <string name="server_app_title">Welcome!!</string>
+    <string name="server_started_title">The server is running on the following URL %1$s. Please copy this URL on the API_BASE_URL inside the build.grade.kts file inside the lib/network project, in that way you will be able to run the app without any issue. :)</string>
+    <string name="server_stop_title">Server went off</string>
+</resources>

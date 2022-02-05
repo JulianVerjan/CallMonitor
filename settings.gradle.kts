@@ -1,10 +1,12 @@
 include(
     ":app",
-    ":lib:network",
+    ":serverapp",
     ":lib:data",
+    ":lib:network",
+    "lib:server",
     ":commons:resources",
     ":lib:model",
-    "feature:facetrackingvideo"
+    "feature:callmonitortask"
 )
 
 rootProject.buildFileName = "build.gradle.kts"

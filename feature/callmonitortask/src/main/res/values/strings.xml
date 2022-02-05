@@ -1,0 +1,14 @@
+<resources>
+    <string name="snack_bar_empty_message">There is no content to show</string>
+    <string name="snack_bar_error_message">Something went wrong</string>
+    <string name="error">Something went wrong!!!</string>
+    <string name="feature_title">Call Monitor App</string>
+    <string name="empty_list_title">Oopps!!</string>
+    <string name="empty_list_message">There is no content to show</string>
+    <string name="connected_server_title">Connected to:</string>
+    <string name="permission_title_access">Permit request</string>
+    <string name="permission_message_access">Please grant permissions, without them you will not be able to use the app correctly</string>
+    <string name="permission_button_access">Allow access</string>
+    <string name="empty_message">There is nothing to show :)</string>
+
+</resources>

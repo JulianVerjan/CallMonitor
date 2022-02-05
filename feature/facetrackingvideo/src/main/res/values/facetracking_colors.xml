@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="white">#FFFFFF</color>
-    <color name="opacity_color">#4800A5DB</color>
-    <color name="line">#dae0e5</color>
-    <color name="button_background">#455A64</color>
-    <color name="text_color">#455A64</color>
-    <color name="light_transparent">#4D000000</color>
-</resources>

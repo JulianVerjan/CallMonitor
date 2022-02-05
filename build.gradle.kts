@@ -2,22 +2,22 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath("com.google.dagger:hilt-android-gradle-plugin:2.34-beta")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.40.5")
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5")
-        classpath("com.android.tools.build:gradle:4.1.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.32")
-        classpath ("org.jetbrains.kotlin:kotlin-serialization:1.4.31")
+        classpath("com.android.tools.build:gradle:4.1.3")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0")
+        classpath ("org.jetbrains.kotlin:kotlin-serialization:1.6.0")
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven { url = uri("https://jitpack.io") }
     }
 }

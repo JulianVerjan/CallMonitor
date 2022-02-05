@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="TextAppearance.Title" parent="@android:style/TextAppearance">
+        <item name="android:gravity">left</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@fonts/worksans_bold</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@fonts/worksans_regular</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Button.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="TextAppearance.SubTitle" parent="@android:style/TextAppearance">
+        <item name="android:gravity">left</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@fonts/worksans_regular</item>
+    </style>
+
+    <style name="Widget.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:fontFamily">@fonts/worksans_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/button_background</item>
+    </style>
+
+    <style name="AppTheme.CollapsingToolbarTitle.Expanded" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@fonts/worksans_regular</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AppTheme.CollapsingToolbarTitle.Collapsed" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@fonts/worksans_regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>

@@ -1,2 +1,0 @@
-com/facetracking/resources/BuildConfig.java
- com.facetracking.resources.BuildConfig

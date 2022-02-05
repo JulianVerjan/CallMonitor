@@ -1,7 +1,7 @@
-import com.facetracking.buildsrc.Apps.COMPILE_SDK
-import com.facetracking.buildsrc.Apps.MIN_SDK
-import com.facetracking.buildsrc.Apps.TARGET_SDK
-import com.facetracking.buildsrc.Apps.androidTestInstrumentation
+import com.callmonitor.buildsrc.Apps.COMPILE_SDK
+import com.callmonitor.buildsrc.Apps.MIN_SDK
+import com.callmonitor.buildsrc.Apps.TARGET_SDK
+import com.callmonitor.buildsrc.Apps.androidTestInstrumentation
 
 plugins {
     id("com.android.library")

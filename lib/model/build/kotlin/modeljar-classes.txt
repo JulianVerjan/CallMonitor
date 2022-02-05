@@ -1,1 +1,0 @@
-/Users/julian.verjanzenjob.com/AndroidStudioProjects/FaceTracking/lib/model/build/classes/kotlin/main/com/facetracking/model/SaveVideoResult.class

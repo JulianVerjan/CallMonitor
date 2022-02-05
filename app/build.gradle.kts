@@ -1,20 +1,20 @@
-import com.facetracking.buildsrc.Apps.APP_ID
-import com.facetracking.buildsrc.Apps.COMPILE_SDK
-import com.facetracking.buildsrc.Apps.MIN_SDK
-import com.facetracking.buildsrc.Apps.TARGET_SDK
-import com.facetracking.buildsrc.Libs.CONSTRAINT_LAYOUT
-import com.facetracking.buildsrc.Libs.CORE
-import com.facetracking.buildsrc.Libs.CORE_HILT
-import com.facetracking.buildsrc.Libs.FRAGMENT_KTX
-import com.facetracking.buildsrc.Libs.FRAGMENT_NAVIGATION
-import com.facetracking.buildsrc.Libs.HILT_ANDROID_COMPILER
-import com.facetracking.buildsrc.Libs.HILT_COMPILER
-import com.facetracking.buildsrc.Libs.KOTLIN_JDK
-import com.facetracking.buildsrc.Libs.NAVIGATION_LAYOUT
-import com.facetracking.buildsrc.Libs.NAVIGATION_UI_LIB
-import com.facetracking.buildsrc.TestLibs.ESPRESSO_LIB
-import com.facetracking.buildsrc.TestLibs.JUNIT_EXT
-import com.facetracking.buildsrc.TestLibs.JUNIT_LIB
+import com.callmonitor.buildsrc.Apps.APP_ID
+import com.callmonitor.buildsrc.Apps.COMPILE_SDK
+import com.callmonitor.buildsrc.Apps.MIN_SDK
+import com.callmonitor.buildsrc.Apps.TARGET_SDK
+import com.callmonitor.buildsrc.Libs.CONSTRAINT_LAYOUT
+import com.callmonitor.buildsrc.Libs.CORE
+import com.callmonitor.buildsrc.Libs.CORE_HILT
+import com.callmonitor.buildsrc.Libs.FRAGMENT_KTX
+import com.callmonitor.buildsrc.Libs.FRAGMENT_NAVIGATION
+import com.callmonitor.buildsrc.Libs.HILT_ANDROID_COMPILER
+import com.callmonitor.buildsrc.Libs.HILT_LIFE_CYCLE
+import com.callmonitor.buildsrc.Libs.KOTLIN_JDK
+import com.callmonitor.buildsrc.Libs.NAVIGATION_LAYOUT
+import com.callmonitor.buildsrc.Libs.NAVIGATION_UI_LIB
+import com.callmonitor.buildsrc.TestLibs.ESPRESSO_LIB
+import com.callmonitor.buildsrc.TestLibs.JUNIT_EXT
+import com.callmonitor.buildsrc.TestLibs.JUNIT_LIB
 
 plugins {
     id("com.android.application")
@@ -34,20 +34,24 @@ android {
         versionCode = versionCode
         versionName = versionName
 
-        testInstrumentationRunner = com.facetracking.buildsrc.Apps.androidTestInstrumentation
+        testInstrumentationRunner = com.callmonitor.buildsrc.Apps.androidTestInstrumentation
     }
 
     buildTypes {
-        getByName(com.facetracking.buildsrc.BuildType.RELEASE) {
+        getByName(com.callmonitor.buildsrc.BuildType.RELEASE) {
             proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
-            isMinifyEnabled = com.facetracking.buildsrc.BuildTypeRelease.isMinifyEnabled
-            isTestCoverageEnabled = com.facetracking.buildsrc.BuildTypeRelease.isTestCoverageEnabled
+            isMinifyEnabled = com.callmonitor.buildsrc.BuildTypeRelease.isMinifyEnabled
+            isTestCoverageEnabled = com.callmonitor.buildsrc.BuildTypeRelease.isTestCoverageEnabled
         }
     }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude("META-INF/*")
     }
 
     kotlinOptions {
@@ -64,7 +68,7 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(project(":commons:resources"))
-    implementation(project(":feature:facetrackingvideo"))
+    implementation(project(":feature:callmonitortask"))
     implementation(KOTLIN_JDK)
     implementation(CORE)
     implementation(CORE_HILT)
@@ -74,7 +78,7 @@ dependencies {
     implementation(NAVIGATION_LAYOUT)
     implementation(CONSTRAINT_LAYOUT)
 
-    kapt(HILT_COMPILER)
+    kapt(HILT_LIFE_CYCLE)
     kapt(HILT_ANDROID_COMPILER)
 
     testImplementation(JUNIT_LIB)

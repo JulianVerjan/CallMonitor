@@ -1,17 +1,17 @@
-import com.facetracking.buildsrc.Apps.COMPILE_SDK
-import com.facetracking.buildsrc.Apps.MIN_SDK
-import com.facetracking.buildsrc.Apps.TARGET_SDK
-import com.facetracking.buildsrc.Apps.androidTestInstrumentation
-import com.facetracking.buildsrc.Libs.CORE_HILT
-import com.facetracking.buildsrc.Libs.HILT_ANDROID_COMPILER
-import com.facetracking.buildsrc.Libs.HILT_COMPILER
-import com.facetracking.buildsrc.TestLibs.COROUTINES_TEST
-import com.facetracking.buildsrc.TestLibs.JUNIT_LIB
-import com.facetracking.buildsrc.TestLibs.MOCK
-import com.facetracking.buildsrc.TestLibs.MOCKITO_KOTLIN_LIBRARY
-import com.facetracking.buildsrc.TestLibs.MOCK_WEB_SERVER
-import com.facetracking.buildsrc.TestLibs.RULES
-import com.facetracking.buildsrc.TestLibs.RUNNER
+import com.callmonitor.buildsrc.Apps.COMPILE_SDK
+import com.callmonitor.buildsrc.Apps.MIN_SDK
+import com.callmonitor.buildsrc.Apps.TARGET_SDK
+import com.callmonitor.buildsrc.Apps.androidTestInstrumentation
+import com.callmonitor.buildsrc.Libs.CORE_HILT
+import com.callmonitor.buildsrc.Libs.COROUTINES_CORE
+import com.callmonitor.buildsrc.Libs.HILT_ANDROID_COMPILER
+import com.callmonitor.buildsrc.TestLibs.COROUTINES_TEST
+import com.callmonitor.buildsrc.TestLibs.JUNIT_LIB
+import com.callmonitor.buildsrc.TestLibs.MOCK
+import com.callmonitor.buildsrc.TestLibs.MOCKITO_KOTLIN_LIBRARY
+import com.callmonitor.buildsrc.TestLibs.MOCK_WEB_SERVER
+import com.callmonitor.buildsrc.TestLibs.RULES
+import com.callmonitor.buildsrc.TestLibs.RUNNER
 
 plugins {
     id("com.android.library")
@@ -54,9 +54,11 @@ android {
 dependencies {
     implementation(project(":lib:network"))
     implementation(project(":lib:model"))
+    implementation(project(":lib:server"))
     implementation(CORE_HILT)
+    implementation(COROUTINES_CORE)
     implementation(MOCKITO_KOTLIN_LIBRARY)
-    kapt(HILT_COMPILER)
+
     kapt(HILT_ANDROID_COMPILER)
 
     testImplementation(JUNIT_LIB)
