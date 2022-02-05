@@ -1,0 +1,66 @@
+[
+  {
+    "beginning": "2022-02-05T21:18:21+0100",
+    "duration": "4",
+    "name": "Unknown user",
+    "number": "6505551212",
+    "timeQueried": 0,
+    "uid": 1
+  },
+  {
+    "beginning": "2022-02-05T21:20:38+0100",
+    "duration": "35",
+    "name": "Test Man",
+    "number": "+16505556789",
+    "timeQueried": 0,
+    "uid": 2
+  },
+  {
+    "beginning": "2022-02-05T21:22:46+0100",
+    "duration": "58",
+    "name": "Test Man",
+    "number": "+16505556789",
+    "timeQueried": 0,
+    "uid": 3
+  },
+  {
+    "beginning": "2022-02-05T21:26:47+0100",
+    "duration": "18",
+    "name": "Test Man",
+    "number": "+16505556789",
+    "timeQueried": 0,
+    "uid": 4
+  },
+  {
+    "beginning": "2022-02-05T21:27:54+0100",
+    "duration": "79",
+    "name": "Test Man",
+    "number": "+16505556789",
+    "timeQueried": 0,
+    "uid": 5
+  },
+  {
+    "beginning": "2022-02-05T21:29:58+0100",
+    "duration": "138",
+    "name": "Test Man",
+    "number": "+16505556789",
+    "timeQueried": 0,
+    "uid": 6
+  },
+  {
+    "beginning": "2022-02-05T21:32:50+0100",
+    "duration": "71",
+    "name": "Test Man",
+    "number": "+16505556789",
+    "timeQueried": 0,
+    "uid": 7
+  },
+  {
+    "beginning": "2022-02-05T21:43:35+0100",
+    "duration": "3",
+    "name": "Test Man",
+    "number": "+16505556789",
+    "timeQueried": 0,
+    "uid": 8
+  }
+]

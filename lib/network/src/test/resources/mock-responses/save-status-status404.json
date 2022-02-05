@@ -1,5 +1,5 @@
 {
     "status": 400,
     "message": "Something went wrong",
-    "isVideoSaved": false
+    "isRecordSaved": false
 }
