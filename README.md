@@ -94,7 +94,7 @@ To successfully run this project after cloning it you must do the following:
 6. Run the client app.
 7. Make or receive calls from the device on which you have the client app installed.
 
-Note: If the client app is in an android emulator you can use the phone feature in the emulator which is in the extended controls by pressing the more button to simulate calls.
+#### Note: If the client app is in an android emulator you can use the phone feature in the emulator which is in the extended controls by pressing the more button to simulate calls.
 
 #### What would I do if I had more time
 
