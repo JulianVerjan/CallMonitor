@@ -1,18 +1,20 @@
-# CallMonitorStateApp
+# CallMonitor Task
 
-Passbase coding task.
+Nord security coding task.
+
+In this project is found the solution to the task. The project consists of two applications, one that acts as a server application storing data and responding to requests by the client app and the client app from which users can see the call logs and interact with the server app.
 
 
-## Design
+## Design(Client App and Server App)
 
-App: the content has been adapted to fit for mobile devices. To do that, it has been created flexible layouts using one or more of the following concepts:
+The content of both apps has been adapted to fit for mobile devices. To do that, it has been created flexible layouts using one or more of the following concepts:
 
 -   [Use constraintLayout](https://developer.android.com/training/multiscreen/screensizes#ConstraintLayout)
 -   [Avoid hard-coded layout sizes](https://developer.android.com/training/multiscreen/screensizes#TaskUseWrapMatchPar)
 
 ## Architecture
 
-The architecture of the application is based on the following points:
+The architecture of the applications are based on the following points:
 
 -   A single-activity architecture, using the [Navigation component](https://developer.android.com/guide/navigation/navigation-getting-started) to manage fragment operations.
 -   Pattern [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (MVVM) facilitating a [separation](https://en.wikipedia.org/wiki/Separation_of_concerns) of development of the graphical user interface.
@@ -23,25 +25,34 @@ The architecture of the application is based on the following points:
 
 The above graph shows the app modularisation:
 -   `:app` depends on `:commons:resources` and indirectly depends on `:features`.
+-   `:serverapp` depends on `:commons:resources` and directly depends on `lib:server` feature.
 -   `:features` modules depends on `:commons`, `:lib:network`, `:lib:data` and `:lib:model`.
 -   `:commons` only depends for possible utils on `:lib`.
 -   `:lib` don’t have any dependency.
 
 #### App module
 
-The `:app` module is the main entry of the app which is needed to create the app bundle.  It is also responsible for initiating the [dependency graph]
+The `:app` module is the main entry of the client app which is needed to create the app bundle.  It is also responsible for initiating the [dependency graph]
 
-#### Core module
+#### Sever app
 
-The `:lib:network` module is an android library  for serving network requests. Providing the data source for the catalog information.
+The `:serverapp` module is the main entry of the server app. is responsible for responding to requests for information and data storage from the client app. The above using the `lib:server` module.
 
-#### Core module
+#### Core module(Network)
+
+The `:lib:network` module is an android library  for serving network requests. Providing the data source for the call log, call status and services information.
+
+#### Core module(Data)
 
 The `:lib:data` module is an android library  and contains the use cases that fetch the data for the view models.
 
+#### Core module(Server)
+
+The `:lib:server` module is an android library  and contains the necessary classes to respond to requests and store the information coming from the client app.
+
 #### Features modules
 
-In the `:features` module you will find the feature for detect a face, creates a videos and then pushed it to the server 
+In the `:features` module you will find the feature capable of serving call data to clients on the same network.
 
 
 #### Commons modules
@@ -60,50 +71,45 @@ Some of the main libraries used for this app are:
 
 1. Dagger Hilt for handling the dependency injection
 2. Fragment navigation for handling the navigation inside the app.
-3. ML Kit for face detection and camera 2 API to capture faces and video
+3. Room database for storing information in the server app.
+4. Ktor for creating embedded http server.
+5. Okhttp vs retrofit for information requests from the client app.
 
 For more information related to the libraries used, please check the Dependencies.kt class on the buildSrc project.
 
-#### Brief explanation
-
-I decided to handle one object(SaveVideoResult) that contains the result of saving the video on the backend and the objects from ML Kit to handle the face recognition and video
-
-SaveVideoResult contains the following parameters
-- status: An integer code number that tells if the request was successful or not(200/400 code)
-- message: An string that show a successful message or error
-- isVideoSaved = A boolean that tells if the video was sucessful (true) saved or not (false)
-
 #### Project setup
 
-There is nothing special that should be done to run this project, you just have to clone the repo and run.
+Note: I need to highlight that the server app must be executed on a physical device and not on an emulator since the IP in the emulators is different than of a physical device, and due to this issue, there was never communication between the client app and the server app.
 
-If you need access to the Webhook dashboard where the requests are made, this is the url:
+I could not get the server to work from an android emulator, and therefore the server app must be installed on a smartphone. The client app can run on an emulator or smartphone without any trouble
 
-https://webhook.site/#!/25960fec-fdb0-468a-9227-0e2768d757b5/ebb58286-0767-4e4f-a555-296e3dfd187c/1
+1. As an initial step you should clone the repository.
+
+To successfully run this project after cloning it you must do the following: 
+
+2. Run the server application and press the start server button.
+3. When the server runs you will see the URL of the server you are running on.
+4. Copy this URL to `API_BASE_URL` variable inside the `build.grade.kts` file inside the `lib/network project`. `This is a very important step without this the client app will not work`.
+5. Clean and make project(Hammer button in android studio)
+6. Run the client app.
+7. Make or receive calls from the device on which you have the client app installed.
+
+Note: If the client app is in an android emulator you can use the phone feature in the emulator which is in the extended controls by pressing the more button to simulate calls.
 
 #### What would I do if I had more time
 
-1. The validation(Lines 27 to 32) in the FaceTrackingImageAnalyzer class is not working correctly because the validation of the left corner and the bottom of the square are not correct. The idea was to validate that the face is inside the yellow square and when this happens start recording, however due to this problem sometimes the face is detected before it is inside the square. I would very much like to correct this if I had more time
-
-2. I had a confusion with the requirement of the yellow box and in the end, what I did was validate if the face was inside the box and keep the yellow box centered on the screen. If the face is outside the box or a part inside, it is not validated and the video will not be triggered.
-
-If it was necessary to draw the yellow box around the person's face and not keep it centered, I would love to make this change in the future.
-
-3. Due to time it was necessary for me to separate the use cases that I pass to the cameraProvider object, when the face is tracked (bindFaceDetectionUseCase method) I had to pass the preview object and the image analyzer to it, then when a face was recognized, it cleaned the cameraProvider and recreated it case the use case (bindVideoRecordUseCase) with the preview object and the VideoCapture object.
-
-The above is leading to some black screens and somewhat strange animations when doing this cleanup and creation. I would like in the future to review more in depth the ML kit documentation and find a solution to this or maybe see if it is possible to inject more than 3 use cases to the cameraProvider and validate how to do it.
-
+1. I couldn't find a way to know the server IP dynamically and in advance. Due to the above, the 3rd step is necessary during the project setup.
+2. I would have wanted the server code to be in another project outside the mobile project, however, I didn't find a way to do it, I even tried with IntelliJ, but I couldn't do it.
+3. There is a bug with the broadcast receiver that I am using to get the incoming calls, and if I press the floating button in the client app to stop the broadcast it stops working, and it is necessary to reinstall the app to get it working again. The previous bug could not be solved because I spent more time on other tasks and noticed this bug at the last minute.
 4. If I had had more time I would have tried to organize the code a little better in the feature module and I would have tried to separate it into some utility classes.
-
-5. There are some strings in the feature code that are hardcoded, I would like to fix this as well.
-
-6. Due to time the saveVideoSuccessfully unit test is not working since the status it is returning an error, I would like to be able to fix it too.
+5. I did not find a way to run the server app from an emulator and therefore it is necessary that the server app runs on a physical device.
+6. There are some strings in the feature code that are hardcoded, I would like to fix this as well.
 
 #### What was achieved during the test
 
-1. All the points required in the test were implemented using the ML Kit and camer2 API to detect faces and record the video.
+1. All the points required in the test were implemented accoridng to the description.
 
-2. Coroutines were used to send the video to the server.
+2. Coroutines were used for the communication with the server app.
 
 3. In the application the information is being handled as if they were states that update the user interface.
 
