@@ -48,7 +48,7 @@ The `:lib:data` module is an android library  and contains the use cases that f
 
 #### Core module(Server)
 
-The `:lib:server` module is an android library  and contains the necessary classes to respond to requests and store the information coming from the client app.
+The `:lib:server` module is an android library  and contains the necessary classes to respond to requests and store the information coming from the client app. In this library, `ktor` library was used to create an embedded server responsible for storing and responding to requests from the client app.
 
 #### Features modules
 
