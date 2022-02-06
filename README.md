@@ -79,9 +79,9 @@ For more information related to the libraries used, please check the Dependencie
 
 #### Project setup
 
-Note: I need to highlight that the server app must be executed on a physical device and not on an emulator since the IP in the emulators is different than of a physical device, and due to this issue, there was never communication between the client app and the server app.
+#### Note: I need to highlight that the server app must be executed on a physical device and not on an emulator since the IP in the emulators is different than of a physical device, and due to this issue, there was never communication between the client app and the server app.
 
-I could not get the server to work from an android emulator, and therefore the server app must be installed on a smartphone. The client app can run on an emulator or smartphone without any trouble
+#### I could not get the server to work from an android emulator, and therefore the server app must be installed on a smartphone. The client app can run on an emulator or smartphone without any trouble
 
 1. As an initial step you should clone the repository.
 
@@ -89,7 +89,7 @@ To successfully run this project after cloning it you must do the following:
 
 2. Run the server application and press the start server button.
 3. When the server runs you will see the URL of the server you are running on.
-4. Copy this URL to `API_BASE_URL` variable inside the `build.grade.kts` file inside the `lib/network project`. `This is a very important step without this the client app will not work`.
+4. Copy this URL to `API_BASE_URL` variable inside the `build.grade.kts` file inside the `lib/network project`. #### This is a very important step without this the #### client app will not work.
 5. Clean and make project(Hammer button in android studio)
 6. Run the client app.
 7. Make or receive calls from the device on which you have the client app installed.
